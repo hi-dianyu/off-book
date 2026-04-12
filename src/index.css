@@ -214,6 +214,62 @@ button {
   overflow: hidden;
 }
 
+/* ── Scene Navigation ── */
+.scene-nav {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 36px;
+  background: #f5f0e8;
+  border-bottom: 1px solid #ece7de;
+  flex-shrink: 0;
+}
+
+.scene-select {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b6055;
+  background: transparent;
+  border: 1px solid #ddd6c8;
+  border-radius: 6px;
+  padding: 4px 24px 4px 10px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b6055'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px 6px;
+  letter-spacing: 0.04em;
+  transition: border-color 0.15s;
+}
+
+.scene-select:hover {
+  border-color: #c8820a;
+}
+
+.scene-select:focus {
+  outline: none;
+  border-color: #c8820a;
+}
+
+.scene-heading {
+  scroll-margin-top: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #6b6055;
+  letter-spacing: 0.06em;
+  padding: 6px 2px;
+  margin: 24px 0 8px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.scene-heading:first-child {
+  margin-top: 0;
+}
+
 .script-container {
   flex: 1;
   overflow-y: auto;
@@ -246,6 +302,20 @@ button {
 }
 
 .script-line:last-child {
+  border-bottom: none;
+}
+
+/* ── Monologue parts (split long speeches) ── */
+.script-line-group {
+  border-bottom: 1px solid #ece7de;
+}
+
+.script-line-group .script-line {
+  border-bottom: 1px dashed #e0dbd2;
+  padding-left: 2px;
+}
+
+.script-line-group .script-line:last-child {
   border-bottom: none;
 }
 

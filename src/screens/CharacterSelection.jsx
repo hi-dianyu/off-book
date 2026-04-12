@@ -1,5 +1,3 @@
-import { CHARACTERS } from "../data/script";
-
 export default function CharacterSelection({ play, onSelect, onBack }) {
   return (
     <div className="screen character-selection-screen">
@@ -11,7 +9,7 @@ export default function CharacterSelection({ play, onSelect, onBack }) {
       <div className="character-selection-body">
         <h2 className="character-selection-heading">选择角色</h2>
         <div className="character-list">
-          {CHARACTERS.map((character) => (
+          {play.characters.map((character) => (
             <button
               key={character}
               className="character-btn"

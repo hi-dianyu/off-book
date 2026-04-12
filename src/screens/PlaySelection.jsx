@@ -1,4 +1,4 @@
-import { PLAY } from "../data/script";
+import { PLAYS } from "../data/plays";
 
 export default function PlaySelection({ onSelect }) {
   return (
@@ -10,13 +10,15 @@ export default function PlaySelection({ onSelect }) {
       <div className="character-selection-body">
         <h2 className="character-selection-heading">选择剧本</h2>
         <section className="plays-list">
-          <button className="play-card" onClick={() => onSelect(PLAY)}>
-            <div className="play-card-inner">
-              <span className="play-title-zh">{PLAY.title}</span>
-              <span className="play-title-en">{PLAY.subtitle}</span>
-            </div>
-            <span className="play-card-arrow">›</span>
-          </button>
+          {PLAYS.map((play) => (
+            <button key={play.id} className="play-card" onClick={() => onSelect(play)}>
+              <div className="play-card-inner">
+                <span className="play-title-zh">{play.title}</span>
+                <span className="play-title-en">{play.subtitle}</span>
+              </div>
+              <span className="play-card-arrow">›</span>
+            </button>
+          ))}
         </section>
       </div>
     </div>
