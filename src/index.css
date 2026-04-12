@@ -305,6 +305,20 @@ button {
   border-bottom: none;
 }
 
+/* ── Monologue parts (split long speeches) ── */
+.script-line-group {
+  border-bottom: 1px solid #ece7de;
+}
+
+.script-line-group .script-line {
+  border-bottom: 1px dashed #e0dbd2;
+  padding-left: 2px;
+}
+
+.script-line-group .script-line:last-child {
+  border-bottom: none;
+}
+
 .character-name {
   font-weight: 700;
   font-size: 16px;
