@@ -46,7 +46,8 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 20px;
+  padding: 0 20px;
+  height: 52px;
   border-bottom: 1px solid #ddd6c8;
   background: #f5f0e8;
   position: sticky;
@@ -97,30 +98,6 @@ button {
 /* ── Play Selection ── */
 .play-selection-screen {
   justify-content: flex-start;
-  padding: 0 24px;
-}
-
-.app-header {
-  padding: 60px 0 48px;
-  text-align: left;
-}
-
-.app-name {
-  font-family: Georgia, serif;
-  font-size: 52px;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  color: #1c1c1c;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.app-tagline {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  color: #9a8f82;
-  font-weight: 400;
-  letter-spacing: 0.02em;
 }
 
 .plays-list {
@@ -282,10 +259,6 @@ button {
 
 .my-character-name {
   color: #c8820a;
-  text-decoration: underline;
-  text-decoration-color: rgba(200, 130, 10, 0.5);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 2px;
 }
 
 .line-separator {

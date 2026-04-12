@@ -30,10 +30,7 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
     <div className="screen script-screen">
       <header className="top-bar">
         <button className="back-btn" onClick={onBack}>← 返回</button>
-        <div className="top-bar-center">
-          <span className="top-bar-title">{play.title}</span>
-          <span className="top-bar-character">{character}</span>
-        </div>
+        <span className="top-bar-title">{play.title}</span>
       </header>
 
       <div className="script-container" ref={scrollRef} onScroll={handleScroll}>
