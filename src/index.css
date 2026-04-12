@@ -62,12 +62,25 @@ button {
   gap: 1px;
 }
 
+.top-bar-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 .top-bar-title {
   font-size: 15px;
   font-weight: 600;
   color: #1c1c1c;
   font-family: system-ui, -apple-system, sans-serif;
   letter-spacing: 0.01em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .top-bar-character {
@@ -214,18 +227,10 @@ button {
   overflow: hidden;
 }
 
-/* ── Scene Navigation ── */
-.scene-nav {
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-  height: 36px;
-  background: #f5f0e8;
-  border-bottom: 1px solid #ece7de;
-  flex-shrink: 0;
-}
-
+/* ── Scene jump (in script top bar) ── */
 .scene-select {
+  flex-shrink: 0;
+  max-width: min(200px, 42vw);
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 13px;
   font-weight: 500;
