@@ -150,6 +150,38 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
             }
 
             const isMyLine = entry.character === character;
+
+            // Handle lines with parts (long monologues split into segments)
+            if (entry.parts) {
+              return (
+                <div key={index} className="script-line-group">
+                  {entry.parts.map((part, partIdx) => {
+                    const partKey = `${index}-${partIdx}`;
+                    const isPartRevealed = revealed[partKey];
+                    return (
+                      <div
+                        key={partKey}
+                        className={`script-line ${isMyLine ? "my-line" : ""} ${isMyLine && !isPartRevealed ? "redacted" : ""}`}
+                        onClick={isMyLine ? () => toggleReveal(partKey) : undefined}
+                        role={isMyLine ? "button" : undefined}
+                        aria-label={isMyLine && !isPartRevealed ? "点击显示台词" : undefined}
+                      >
+                        {partIdx === 0 && (
+                          <>
+                            <span className={`character-name ${isMyLine ? "my-character-name" : ""}`}>
+                              {entry.character}
+                            </span>
+                            <span className="line-separator">：</span>
+                          </>
+                        )}
+                        <span className="line-text">{part}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            }
+
             const isRevealed = revealed[index];
 
             return (
