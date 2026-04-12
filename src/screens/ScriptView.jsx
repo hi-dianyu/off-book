@@ -3,7 +3,6 @@ import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 export default function ScriptView({ play, character, onBack, scrollPositions, onScroll }) {
   const [revealed, setRevealed] = useState({});
   const scrollRef = useRef(null);
-  const hasMounted = useRef(false);
   const [activeScene, setActiveScene] = useState(null);
 
   // Extract scene info from script
@@ -21,14 +20,27 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
 
   const showSceneNav = scenes.length >= 2;
 
-  // Initialize active scene
-  useEffect(() => {
-    if (scenes.length > 0 && activeScene === null) {
-      setActiveScene(scenes[0].id);
-    }
-  }, [scenes, activeScene]);
+  /** Last scene whose heading top is at or above a trigger line in the scroll container (full recomputation each call — avoids stale IntersectionObserver state). */
+  const updateActiveFromScroll = useCallback(() => {
+    const container = scrollRef.current;
+    if (!container || scenes.length === 0) return;
 
-  // Restore scroll position on mount
+    const rootRect = container.getBoundingClientRect();
+    const triggerLine = rootRect.top + Math.min(rootRect.height * 0.2, 88);
+
+    let active = scenes[0].id;
+    for (const scene of scenes) {
+      const el = document.getElementById(scene.id);
+      if (!el) continue;
+      const top = el.getBoundingClientRect().top;
+      if (top <= triggerLine) {
+        active = scene.id;
+      }
+    }
+    setActiveScene(active);
+  }, [scenes]);
+
+  // Restore scroll position once on mount
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -36,58 +48,20 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
     if (saved != null) {
       container.scrollTop = saved;
     }
-    hasMounted.current = true;
   }, []);
 
-  // IntersectionObserver scroll-spy
+  // Keep dropdown aligned with scroll position (mount, scene list changes)
   useEffect(() => {
     if (!showSceneNav) return;
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const headings = scenes.map(s => document.getElementById(s.id)).filter(Boolean);
-    if (headings.length === 0) return;
-
-    // Track which headings have crossed above the trigger line
-    const visibleSet = new Set();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            visibleSet.add(entry.target.id);
-          } else {
-            // If heading scrolled above viewport (boundingClientRect.top < rootBounds.top)
-            if (entry.boundingClientRect.top < entry.rootBounds.top) {
-              visibleSet.add(entry.target.id);
-            } else {
-              visibleSet.delete(entry.target.id);
-            }
-          }
-        });
-
-        // The active scene is the last one whose heading has been scrolled past or is visible
-        let active = scenes[0].id;
-        for (const scene of scenes) {
-          if (visibleSet.has(scene.id)) {
-            active = scene.id;
-          }
-        }
-        setActiveScene(active);
-      },
-      {
-        root: container,
-        rootMargin: "-20% 0px -80% 0px",
-        threshold: 0,
-      }
-    );
-
-    headings.forEach((h) => observer.observe(h));
-    return () => observer.disconnect();
-  }, [scenes, showSceneNav]);
+    requestAnimationFrame(() => {
+      updateActiveFromScroll();
+    });
+  }, [showSceneNav, scenes, updateActiveFromScroll]);
 
   function handleScroll(e) {
     onScroll(character, e.currentTarget.scrollTop);
+    if (!showSceneNav) return;
+    updateActiveFromScroll();
   }
 
   function toggleReveal(index) {
@@ -96,10 +70,12 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
 
   const handleSceneJump = useCallback((e) => {
     const id = e.target.value;
+    setActiveScene(id);
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (!el) return;
+    // Instant jump avoids intermediate scroll positions (smooth scroll made the dropdown
+    // label cycle through every scene heading as it passed the trigger line).
+    el.scrollIntoView({ block: "start", behavior: "instant" });
   }, []);
 
   // Build a lookup for scene IDs by script index
@@ -113,22 +89,22 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
     <div className="screen script-screen">
       <header className="top-bar">
         <button className="back-btn" onClick={onBack}>← 返回</button>
-        <span className="top-bar-title">{play.title}</span>
-      </header>
-
-      {showSceneNav && (
-        <div className="scene-nav">
-          <select
-            className="scene-select"
-            value={activeScene || ""}
-            onChange={handleSceneJump}
-          >
-            {scenes.map((s) => (
-              <option key={s.id} value={s.id}>{s.text}</option>
-            ))}
-          </select>
+        <div className="top-bar-main">
+          <span className="top-bar-title">{play.title}</span>
+          {showSceneNav && (
+            <select
+              className="scene-select"
+              value={activeScene || ""}
+              onChange={handleSceneJump}
+              aria-label="跳转场次"
+            >
+              {scenes.map((s) => (
+                <option key={s.id} value={s.id}>{s.text}</option>
+              ))}
+            </select>
+          )}
         </div>
-      )}
+      </header>
 
       <div className="script-container" ref={scrollRef} onScroll={handleScroll}>
         <div className="script-body">
