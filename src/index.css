@@ -464,6 +464,13 @@ button {
   box-shadow: 0 2px 8px rgba(200, 130, 10, 0.1);
 }
 
+/* Until the user moves the pointer, don’t paint hover (avoids first row looking “selected” after picking a play). */
+.character-list--hover-gated .character-btn:hover {
+  border-color: #ddd6c8;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 .character-btn:active {
   transform: scale(0.99);
   background: #fff5e6;
