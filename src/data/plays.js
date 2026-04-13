@@ -3,5 +3,5 @@ import { PLAY as DOUBT, CHARACTERS as DOUBT_CHARACTERS, SCRIPT as DOUBT_SCRIPT }
 
 export const PLAYS = [
   { ...GOD_OF_CARNAGE, characters: GOC_CHARACTERS, script: GOC_SCRIPT },
-  { ...DOUBT, characters: DOUBT_CHARACTERS, script: DOUBT_SCRIPT },
+  { ...DOUBT, characters: DOUBT_CHARACTERS, script: DOUBT_SCRIPT, disabled: true },
 ];

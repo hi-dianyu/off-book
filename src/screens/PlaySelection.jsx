@@ -32,7 +32,13 @@ export default function PlaySelection({ onSelect }) {
         </div>
         <section className="plays-list">
           {PLAYS.map((play) => (
-            <button key={play.id} className="play-card" onClick={() => onSelect(play)}>
+            <button
+              key={play.id}
+              type="button"
+              className="play-card"
+              disabled={play.disabled}
+              onClick={() => onSelect(play)}
+            >
               <div className="play-card-inner">
                 <span className="play-title-zh">{play.title}</span>
                 <span className="play-title-en">{play.subtitle}</span>

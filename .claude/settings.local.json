@@ -4,7 +4,27 @@
       "Bash(gh auth:*)",
       "Bash(git init:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(git push:*)",
+      "Bash(brew install:*)",
+      "Bash(npm run:*)",
+      "Bash(open http://localhost:5173)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill 27712)",
+      "Bash(git checkout:*)",
+      "Bash(pip install:*)",
+      "Bash(python3 -c ':*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3)",
+      "Bash(git merge:*)",
+      "Bash(ls /Users/dianyu/project/*.pdf)",
+      "Bash(ls /Users/dianyu/project/**/*.pdf)",
+      "WebFetch(domain:docs.google.com)",
+      "Bash(pandoc /Users/dianyu/Downloads/《怀疑》舞监版.docx -o /tmp/doubt-raw.md)",
+      "Bash(python3 /tmp/parse_doubt.py)",
+      "Bash(node -c /tmp/doubt_new.js)",
+      "Bash(node -e ':*)"
     ]
   }
 }

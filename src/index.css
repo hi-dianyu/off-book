@@ -108,6 +108,103 @@ button {
   color: #c8820a;
 }
 
+/* ── Invite code ── */
+.invite-code-screen {
+  justify-content: flex-start;
+}
+
+.invite-code-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px 48px;
+}
+
+.invite-code-form {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.invite-code-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  color: #1c1c1c;
+  background: #fff;
+  border: 1px solid #ddd6c8;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.invite-code-input::placeholder {
+  color: #9a8f82;
+}
+
+.invite-code-input:focus {
+  outline: none;
+  border-color: #c8820a;
+  box-shadow: 0 0 0 2px rgba(200, 130, 10, 0.2);
+}
+
+.invite-code-input-error {
+  border-color: #b85c4a;
+}
+
+.invite-code-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: #c8820a;
+  border: 1px solid #b07409;
+  border-radius: 10px;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+/* Fixed height so flex centering does not jump when error appears */
+.invite-code-error-slot {
+  flex-shrink: 0;
+  margin-top: 10px;
+  min-height: 2.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.invite-code-error {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: #b85c4a;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.invite-code-btn:hover {
+  background: #d49112;
+  border-color: #c8820a;
+}
+
+.invite-code-btn:active {
+  transform: scale(0.99);
+}
+
 /* ── Play Selection ── */
 .play-selection-screen {
   justify-content: flex-start;
@@ -140,6 +237,33 @@ button {
 
 .play-card:active {
   transform: scale(0.99);
+}
+
+.play-card:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+  background: #ebe6dc;
+  border-color: #d5cdc0;
+  box-shadow: none;
+}
+
+.play-card:disabled:hover,
+.play-card:disabled:active {
+  border-color: #d5cdc0;
+  box-shadow: none;
+  transform: none;
+}
+
+.play-card:disabled .play-title-zh {
+  color: #7a7268;
+}
+
+.play-card:disabled .play-title-en {
+  color: #a0988c;
+}
+
+.play-card:disabled .play-card-arrow {
+  color: #b8b0a4;
 }
 
 .play-card-inner {
