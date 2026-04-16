@@ -1,7 +1,7 @@
 export const PLAY = {
   id: 'example',
   title: 'Romeo and Juliet',
-  subtitle: 'Example / 示例',
+  subtitle: 'Act 2, Scene 2',
 };
 
 export const CHARACTERS = ['Romeo', 'Juliet', 'Nurse'];

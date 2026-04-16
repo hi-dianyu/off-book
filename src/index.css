@@ -108,6 +108,25 @@ button {
   color: #c8820a;
 }
 
+.lang-toggle {
+  margin-left: auto;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6b6055;
+  padding: 4px 10px;
+  border: 1px solid #ddd6c8;
+  border-radius: 6px;
+  background: transparent;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.lang-toggle:hover {
+  color: #1c1c1c;
+  border-color: #c8820a;
+}
+
 /* ── Invite code ── */
 .invite-code-screen {
   justify-content: flex-start;
@@ -282,6 +301,7 @@ button {
 }
 
 .play-title-zh {
+  font-family: system-ui, -apple-system, sans-serif;
   font-size: 20px;
   font-weight: 600;
   color: #1c1c1c;
@@ -453,13 +473,13 @@ button {
 }
 
 .character-btn {
+  font-family: system-ui, -apple-system, sans-serif;
   width: 100%;
   padding: 18px 22px;
   background: #fff;
   border: 1px solid #ddd6c8;
   border-radius: 10px;
   font-size: 20px;
-  font-family: Georgia, serif;
   color: #1c1c1c;
   text-align: left;
   letter-spacing: 0.04em;
