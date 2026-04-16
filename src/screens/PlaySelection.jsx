@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { PLAYS } from "../data/plays";
+import { PLAYS, EXAMPLE_PLAY } from "../data/plays";
+import { useLang } from "../i18n";
 
-export default function PlaySelection({ onSelect }) {
+export default function PlaySelection({ onSelect, mode }) {
+  const { lang, setLang, t } = useLang();
   const [importModalOpen, setImportModalOpen] = useState(false);
 
   useEffect(() => {
@@ -16,22 +18,31 @@ export default function PlaySelection({ onSelect }) {
   return (
     <div className="screen play-selection-screen">
       <header className="top-bar">
-        <span className="top-bar-title">脱稿 Off-Book</span>
+        <span className="top-bar-title">{t("appTitle")}</span>
+        <button
+          type="button"
+          className="lang-toggle"
+          onClick={() => setLang(lang === "en" ? "zh" : "en")}
+        >
+          {lang === "en" ? "中" : "EN"}
+        </button>
       </header>
 
       <div className="character-selection-body">
         <div className="play-selection-heading-row">
-          <h2 className="character-selection-heading">选择剧本</h2>
-          <button
-            type="button"
-            className="import-play-btn"
-            onClick={() => setImportModalOpen(true)}
-          >
-            导入新剧本
-          </button>
+          <h2 className="character-selection-heading">{t("selectPlay")}</h2>
+          {mode !== "example" && (
+            <button
+              type="button"
+              className="import-play-btn"
+              onClick={() => setImportModalOpen(true)}
+            >
+              {t("importPlay")}
+            </button>
+          )}
         </div>
         <section className="plays-list">
-          {PLAYS.map((play) => (
+          {(mode === "example" ? [EXAMPLE_PLAY] : PLAYS).map((play) => (
             <button
               key={play.id}
               type="button"
@@ -66,18 +77,15 @@ export default function PlaySelection({ onSelect }) {
               type="button"
               className="modal-close"
               onClick={() => setImportModalOpen(false)}
-              aria-label="关闭"
+              aria-label={t("close")}
             >
               ×
             </button>
             <h3 id="import-modal-title" className="modal-title">
-              导入新剧本
+              {t("importPlay")}
             </h3>
             <p className="modal-text">
-              联系 <a href="mailto:hi.dianyu@gmail.com">hi.dianyu@gmail.com</a>
-            </p>
-            <p className="modal-text modal-text-en">
-              Contact{" "}
+              {t("contact")}{" "}
               <a href="mailto:hi.dianyu@gmail.com">hi.dianyu@gmail.com</a>
             </p>
           </div>
