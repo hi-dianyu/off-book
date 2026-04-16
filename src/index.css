@@ -224,6 +224,20 @@ button {
   line-height: 1.4;
 }
 
+.invite-code-footer {
+  padding: 16px 24px 24px;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: #9a8f82;
+  line-height: 1.5;
+}
+
+.invite-code-footer a {
+  color: #a66f0a;
+  text-decoration: underline;
+}
+
 .invite-code-btn:hover {
   background: #d49112;
   border-color: #c8820a;

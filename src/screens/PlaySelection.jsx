@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PLAYS, EXAMPLE_PLAY } from "../data/plays";
+import { PLAYS, EXAMPLE_PLAYS } from "../data/plays";
 import { useLang } from "../i18n";
 
 export default function PlaySelection({ onSelect, mode }) {
@@ -42,7 +42,7 @@ export default function PlaySelection({ onSelect, mode }) {
           )}
         </div>
         <section className="plays-list">
-          {(mode === "example" ? [EXAMPLE_PLAY] : PLAYS).map((play) => (
+          {(mode === "example" ? EXAMPLE_PLAYS : PLAYS).map((play) => (
             <button
               key={play.id}
               type="button"
