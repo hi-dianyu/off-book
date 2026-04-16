@@ -62,6 +62,11 @@ export default function InviteCode({ onSuccess }) {
           </div>
         </form>
       </div>
+
+      <footer className="invite-code-footer">
+        <p>{t("uploadScript")}</p>
+        <a href="mailto:hi.dianyu@gmail.com">hi.dianyu@gmail.com</a>
+      </footer>
     </div>
   );
 }
