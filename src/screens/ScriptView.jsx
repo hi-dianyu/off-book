@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import { useLang } from "../i18n";
 
 export default function ScriptView({ play, character, onBack, scrollPositions, onScroll }) {
+  const { lang, setLang, t } = useLang();
   const [revealed, setRevealed] = useState({});
   const scrollRef = useRef(null);
   const [activeScene, setActiveScene] = useState(null);
@@ -88,7 +90,7 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
   return (
     <div className="screen script-screen">
       <header className="top-bar">
-        <button className="back-btn" onClick={onBack}>← 返回</button>
+        <button className="back-btn" onClick={onBack}>{t("back")}</button>
         <div className="top-bar-main">
           <span className="top-bar-title">{play.title}</span>
           {showSceneNav && (
@@ -96,7 +98,7 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
               className="scene-select"
               value={activeScene || ""}
               onChange={handleSceneJump}
-              aria-label="跳转场次"
+              aria-label={t("jumpToScene")}
             >
               {scenes.map((s) => (
                 <option key={s.id} value={s.id}>{s.text}</option>
@@ -104,6 +106,13 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
             </select>
           )}
         </div>
+        <button
+          type="button"
+          className="lang-toggle"
+          onClick={() => setLang(lang === "en" ? "zh" : "en")}
+        >
+          {lang === "en" ? "中" : "EN"}
+        </button>
       </header>
 
       <div className="script-container" ref={scrollRef} onScroll={handleScroll}>
@@ -140,7 +149,7 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
                         className={`script-line ${isMyLine ? "my-line" : ""} ${isMyLine && !isPartRevealed ? "redacted" : ""}`}
                         onClick={isMyLine ? () => toggleReveal(partKey) : undefined}
                         role={isMyLine ? "button" : undefined}
-                        aria-label={isMyLine && !isPartRevealed ? "点击显示台词" : undefined}
+                        aria-label={isMyLine && !isPartRevealed ? t("clickToReveal") : undefined}
                       >
                         {partIdx === 0 && (
                           <>
@@ -166,7 +175,7 @@ export default function ScriptView({ play, character, onBack, scrollPositions, o
                 className={`script-line ${isMyLine ? "my-line" : ""} ${isMyLine && !isRevealed ? "redacted" : ""}`}
                 onClick={isMyLine ? () => toggleReveal(index) : undefined}
                 role={isMyLine ? "button" : undefined}
-                aria-label={isMyLine && !isRevealed ? "点击显示台词" : undefined}
+                aria-label={isMyLine && !isRevealed ? t("clickToReveal") : undefined}
               >
                 <span className={`character-name ${isMyLine ? "my-character-name" : ""}`}>
                   {entry.character}

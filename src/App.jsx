@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { LangProvider } from "./i18n";
 import InviteCode from "./screens/InviteCode";
 import PlaySelection from "./screens/PlaySelection";
 import CharacterSelection from "./screens/CharacterSelection";
@@ -40,31 +41,30 @@ export default function App() {
     setScreen("play-selection");
   }
 
+  let content;
   if (screen === "invite-code") {
-    return <InviteCode onSuccess={handleInviteSuccess} />;
-  }
-
-  if (screen === "play-selection") {
-    return <PlaySelection onSelect={handlePlaySelect} mode={mode} />;
-  }
-
-  if (screen === "character-selection") {
-    return (
+    content = <InviteCode onSuccess={handleInviteSuccess} />;
+  } else if (screen === "play-selection") {
+    content = <PlaySelection onSelect={handlePlaySelect} mode={mode} />;
+  } else if (screen === "character-selection") {
+    content = (
       <CharacterSelection
         play={selectedPlay}
         onSelect={handleCharacterSelect}
         onBack={handleBackToPlays}
       />
     );
+  } else {
+    content = (
+      <ScriptView
+        play={selectedPlay}
+        character={selectedCharacter}
+        onBack={handleBackToCharacters}
+        scrollPositions={scrollPositions.current}
+        onScroll={handleScroll}
+      />
+    );
   }
 
-  return (
-    <ScriptView
-      play={selectedPlay}
-      character={selectedCharacter}
-      onBack={handleBackToCharacters}
-      scrollPositions={scrollPositions.current}
-      onScroll={handleScroll}
-    />
-  );
+  return <LangProvider>{content}</LangProvider>;
 }
