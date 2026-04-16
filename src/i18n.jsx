@@ -10,6 +10,7 @@ const strings = {
   importPlay:      { en: "Import new play",             zh: "导入新剧本" },
   close:           { en: "Close",                       zh: "关闭" },
   contact:         { en: "Contact",                     zh: "联系" },
+  uploadScript:    { en: "Want to upload your own script? Contact", zh: "想上传自己的剧本？联系" },
   back:            { en: "← Back",                      zh: "← 返回" },
   selectCharacter: { en: "Select a character",          zh: "选择角色" },
   jumpToScene:     { en: "Jump to scene",               zh: "跳转场次" },
