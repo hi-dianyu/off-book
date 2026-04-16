@@ -6,6 +6,7 @@ import ScriptView from "./screens/ScriptView";
 
 export default function App() {
   const [screen, setScreen] = useState("invite-code");
+  const [mode, setMode] = useState(null);
   const [selectedPlay, setSelectedPlay] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const scrollPositions = useRef({});
@@ -34,7 +35,8 @@ export default function App() {
     scrollPositions.current[character] = scrollTop;
   }
 
-  function handleInviteSuccess() {
+  function handleInviteSuccess(inviteMode) {
+    setMode(inviteMode);
     setScreen("play-selection");
   }
 
@@ -43,7 +45,7 @@ export default function App() {
   }
 
   if (screen === "play-selection") {
-    return <PlaySelection onSelect={handlePlaySelect} />;
+    return <PlaySelection onSelect={handlePlaySelect} mode={mode} />;
   }
 
   if (screen === "character-selection") {

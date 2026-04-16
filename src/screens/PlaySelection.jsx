@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { PLAYS } from "../data/plays";
+import { PLAYS, EXAMPLE_PLAY } from "../data/plays";
 
-export default function PlaySelection({ onSelect }) {
+export default function PlaySelection({ onSelect, mode }) {
   const [importModalOpen, setImportModalOpen] = useState(false);
 
   useEffect(() => {
@@ -22,16 +22,18 @@ export default function PlaySelection({ onSelect }) {
       <div className="character-selection-body">
         <div className="play-selection-heading-row">
           <h2 className="character-selection-heading">选择剧本</h2>
-          <button
-            type="button"
-            className="import-play-btn"
-            onClick={() => setImportModalOpen(true)}
-          >
-            导入新剧本
-          </button>
+          {mode !== "example" && (
+            <button
+              type="button"
+              className="import-play-btn"
+              onClick={() => setImportModalOpen(true)}
+            >
+              导入新剧本
+            </button>
+          )}
         </div>
         <section className="plays-list">
-          {PLAYS.map((play) => (
+          {(mode === "example" ? [EXAMPLE_PLAY] : PLAYS).map((play) => (
             <button
               key={play.id}
               type="button"

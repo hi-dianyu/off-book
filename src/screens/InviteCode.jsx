@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const INVITE_CODE = "feiyu2026";
+const EXAMPLE_CODE = "example";
 
 export default function InviteCode({ onSuccess }) {
   const [code, setCode] = useState("");
@@ -8,8 +9,11 @@ export default function InviteCode({ onSuccess }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (code.trim() === INVITE_CODE) {
-      onSuccess();
+    const trimmed = code.trim().toLowerCase();
+    if (trimmed === INVITE_CODE) {
+      onSuccess("full");
+    } else if (trimmed === EXAMPLE_CODE) {
+      onSuccess("example");
     } else {
       setError(true);
     }
@@ -45,6 +49,9 @@ export default function InviteCode({ onSuccess }) {
             )}
           </div>
         </form>
+        <p className="invite-code-hint">
+          输入 &quot;example&quot; 试用 / Enter &quot;example&quot; to try
+        </p>
       </div>
     </div>
   );
