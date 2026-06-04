@@ -1,13 +1,11 @@
 import { useState, useRef } from "react";
 import { LangProvider } from "./i18n";
-import InviteCode from "./screens/InviteCode";
 import PlaySelection from "./screens/PlaySelection";
 import CharacterSelection from "./screens/CharacterSelection";
 import ScriptView from "./screens/ScriptView";
 
 export default function App() {
-  const [screen, setScreen] = useState("invite-code");
-  const [mode, setMode] = useState(null);
+  const [screen, setScreen] = useState("play-selection");
   const [selectedPlay, setSelectedPlay] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
   const scrollPositions = useRef({});
@@ -36,16 +34,9 @@ export default function App() {
     scrollPositions.current[character] = scrollTop;
   }
 
-  function handleInviteSuccess(inviteMode) {
-    setMode(inviteMode);
-    setScreen("play-selection");
-  }
-
   let content;
-  if (screen === "invite-code") {
-    content = <InviteCode onSuccess={handleInviteSuccess} />;
-  } else if (screen === "play-selection") {
-    content = <PlaySelection onSelect={handlePlaySelect} mode={mode} />;
+  if (screen === "play-selection") {
+    content = <PlaySelection onSelect={handlePlaySelect} />;
   } else if (screen === "character-selection") {
     content = (
       <CharacterSelection

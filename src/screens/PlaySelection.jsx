@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { PLAYS, EXAMPLE_PLAYS } from "../data/plays";
+import { PLAYS } from "../data/plays";
 import { useLang } from "../i18n";
 
-export default function PlaySelection({ onSelect, mode }) {
+export default function PlaySelection({ onSelect }) {
   const { lang, setLang, t } = useLang();
   const [importModalOpen, setImportModalOpen] = useState(false);
 
@@ -31,18 +31,16 @@ export default function PlaySelection({ onSelect, mode }) {
       <div className="character-selection-body">
         <div className="play-selection-heading-row">
           <h2 className="character-selection-heading">{t("selectPlay")}</h2>
-          {mode !== "example" && (
-            <button
-              type="button"
-              className="import-play-btn"
-              onClick={() => setImportModalOpen(true)}
-            >
-              {t("importPlay")}
-            </button>
-          )}
+          <button
+            type="button"
+            className="import-play-btn"
+            onClick={() => setImportModalOpen(true)}
+          >
+            {t("importPlay")}
+          </button>
         </div>
         <section className="plays-list">
-          {(mode === "example" ? EXAMPLE_PLAYS : PLAYS).map((play) => (
+          {PLAYS.map((play) => (
             <button
               key={play.id}
               type="button"

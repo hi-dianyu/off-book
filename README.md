@@ -45,11 +45,34 @@ src/
     ScriptView.jsx        # Script UI, reveal toggles, scene nav
   data/
     plays.js              # Registers all plays
-    script.js             # 杀戮之神 / God of Carnage
-    doubt.js              # 怀疑 / Doubt: A Parable
+    earnest.js            # The Importance of Being Earnest (Wilde)
+    ideal-husband.js      # An Ideal Husband (Wilde)
+    dolls-house.js        # A Doll's House (Ibsen)
+    hamlet.js             # Hamlet (Shakespeare)
 ```
 
-## Adding or editing a play
+All bundled plays are public-domain opening-scene excerpts.
+
+## Adding a play with an AI coding agent (recommended)
+
+This repo ships an `add-script` skill. The same `SKILL.md` is provided in both
+skill locations so it works out of the box with:
+
+- **Claude Code** — [`.claude/skills/add-script/SKILL.md`](.claude/skills/add-script/SKILL.md)
+- **Codex** — [`.agents/skills/add-script/SKILL.md`](.agents/skills/add-script/SKILL.md)
+
+With the agent running in the project root, paste a script (or point at a PDF)
+and ask:
+
+> load this script into the app
+
+The agent converts it to the data format, splits long monologues, separates
+stage directions, creates the `src/data/<id>.js` file, and registers it in
+`src/data/plays.js` for you. Source scripts should be public domain or your own.
+
+> The two `SKILL.md` files are identical — if you edit one, copy it to the other.
+
+## Adding or editing a play manually
 
 1. Add a module under `src/data/` that exports:
 
@@ -65,4 +88,6 @@ Scene navigation appears when direction lines match the pattern `第…场` (e.g
 
 ## License
 
-Private project (`"private": true` in `package.json`). Adjust if you open-source it later.
+[MIT](LICENSE) © Dian Yu
+
+Bundled play texts are public-domain opening-scene excerpts.
