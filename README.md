@@ -53,7 +53,19 @@ src/
 
 All bundled plays are public-domain opening-scene excerpts.
 
-## Adding or editing a play
+## Adding a play with Claude Code (recommended)
+
+This repo ships an [`add-script`](.claude/skills/add-script/SKILL.md) skill for
+[Claude Code](https://claude.com/claude-code). With Claude Code running in the
+project root, paste a script (or point at a PDF) and ask:
+
+> load this script into the app
+
+Claude converts it to the data format, splits long monologues, separates stage
+directions, creates the `src/data/<id>.js` file, and registers it in
+`src/data/plays.js` for you. Source scripts should be public domain or your own.
+
+## Adding or editing a play manually
 
 1. Add a module under `src/data/` that exports:
 
