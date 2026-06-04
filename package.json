@@ -1,8 +1,24 @@
 {
   "name": "off-book",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "description": "A small web app for off-book rehearsal: pick a play and a role, then run lines with the rest of the script easy to peek at when you need it.",
+  "author": "Dian Yu",
+  "license": "MIT",
+  "homepage": "https://github.com/hi-dianyu/off-book#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hi-dianyu/off-book.git"
+  },
+  "keywords": [
+    "theatre",
+    "rehearsal",
+    "script",
+    "lines",
+    "react",
+    "vite"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",

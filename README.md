@@ -69,4 +69,6 @@ Scene navigation appears when direction lines match the pattern `第…场` (e.g
 
 ## License
 
-Private project (`"private": true` in `package.json`). Adjust if you open-source it later.
+[MIT](LICENSE) © Dian Yu
+
+Bundled play texts are public-domain opening-scene excerpts.
