@@ -45,9 +45,13 @@ src/
     ScriptView.jsx        # Script UI, reveal toggles, scene nav
   data/
     plays.js              # Registers all plays
-    script.js             # 杀戮之神 / God of Carnage
-    doubt.js              # 怀疑 / Doubt: A Parable
+    earnest.js            # The Importance of Being Earnest (Wilde)
+    ideal-husband.js      # An Ideal Husband (Wilde)
+    dolls-house.js        # A Doll's House (Ibsen)
+    hamlet.js             # Hamlet (Shakespeare)
 ```
+
+All bundled plays are public-domain opening-scene excerpts.
 
 ## Adding or editing a play
 

@@ -1,14 +1,11 @@
-import { PLAY as GOD_OF_CARNAGE, CHARACTERS as GOC_CHARACTERS, SCRIPT as GOC_SCRIPT } from './script';
-import { PLAY as DOUBT, CHARACTERS as DOUBT_CHARACTERS, SCRIPT as DOUBT_SCRIPT } from './doubt';
-import { PLAY as EXAMPLE, CHARACTERS as EX_CHARACTERS, SCRIPT as EX_SCRIPT } from './example';
-import { PLAY as EXAMPLE_ZH, CHARACTERS as EX_ZH_CHARACTERS, SCRIPT as EX_ZH_SCRIPT } from './example-zh';
-
-export const EXAMPLE_PLAYS = [
-  { ...EXAMPLE_ZH, characters: EX_ZH_CHARACTERS, script: EX_ZH_SCRIPT },
-  { ...EXAMPLE, characters: EX_CHARACTERS, script: EX_SCRIPT },
-];
+import { PLAY as EARNEST, CHARACTERS as EARNEST_CHARACTERS, SCRIPT as EARNEST_SCRIPT } from './earnest';
+import { PLAY as IDEAL_HUSBAND, CHARACTERS as IDEAL_CHARACTERS, SCRIPT as IDEAL_SCRIPT } from './ideal-husband';
+import { PLAY as DOLLS_HOUSE, CHARACTERS as DOLLS_CHARACTERS, SCRIPT as DOLLS_SCRIPT } from './dolls-house';
+import { PLAY as HAMLET, CHARACTERS as HAMLET_CHARACTERS, SCRIPT as HAMLET_SCRIPT } from './hamlet';
 
 export const PLAYS = [
-  { ...GOD_OF_CARNAGE, characters: GOC_CHARACTERS, script: GOC_SCRIPT },
-  { ...DOUBT, characters: DOUBT_CHARACTERS, script: DOUBT_SCRIPT, disabled: true },
+  { ...EARNEST, characters: EARNEST_CHARACTERS, script: EARNEST_SCRIPT },
+  { ...IDEAL_HUSBAND, characters: IDEAL_CHARACTERS, script: IDEAL_SCRIPT },
+  { ...DOLLS_HOUSE, characters: DOLLS_CHARACTERS, script: DOLLS_SCRIPT },
+  { ...HAMLET, characters: HAMLET_CHARACTERS, script: HAMLET_SCRIPT },
 ];

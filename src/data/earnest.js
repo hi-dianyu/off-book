@@ -1,0 +1,43 @@
+export const PLAY = {
+  id: 'earnest',
+  title: 'The Importance of Being Earnest',
+  subtitle: 'Act 1',
+};
+
+export const CHARACTERS = ['Algernon', 'Lane', 'Jack'];
+
+export const SCRIPT = [
+  { type: 'direction', text: 'Morning-room in Algernon\'s flat in Half-Moon Street. Lane is arranging afternoon tea on the table, and after the music has ceased, Algernon enters.' },
+  { type: 'line', character: 'Algernon', text: 'Did you hear what I was playing, Lane?' },
+  { type: 'line', character: 'Lane', text: 'I didn\'t think it polite to listen, sir.' },
+  { type: 'line', character: 'Algernon', text: 'I\'m sorry for that, for your sake. I don\'t play accurately — any one can play accurately — but I play with wonderful expression. As far as the piano is concerned, sentiment is my forte. I keep science for Life.' },
+  { type: 'line', character: 'Lane', text: 'Yes, sir.' },
+  { type: 'line', character: 'Algernon', text: 'And, speaking of the science of Life, have you got the cucumber sandwiches cut for Lady Bracknell?' },
+  { type: 'line', character: 'Lane', text: 'Yes, sir.' },
+  { type: 'direction', text: 'Hands them on a salver.' },
+  { type: 'line', character: 'Algernon', text: 'Oh! … by the way, Lane, I see from your book that on Thursday night, when Lord Shoreman and Mr. Worthing were dining with me, eight bottles of champagne are entered as having been consumed.' },
+  { type: 'line', character: 'Lane', text: 'Yes, sir; eight bottles and a pint.' },
+  { type: 'line', character: 'Algernon', text: 'Why is it that at a bachelor\'s establishment the servants invariably drink the champagne? I ask merely for information.' },
+  { type: 'line', character: 'Lane', text: 'I attribute it to the superior quality of the wine, sir. I have often observed that in married households the champagne is rarely of a first-rate brand.' },
+  { type: 'line', character: 'Algernon', text: 'Good heavens! Is marriage so demoralising as that?' },
+  { type: 'line', character: 'Lane', text: 'I believe it is a very pleasant state, sir. I have had very little experience of it myself up to the present. I have only been married once. That was in consequence of a misunderstanding between myself and a young person.' },
+  { type: 'line', character: 'Algernon', text: 'I don\'t know that I am much interested in your family life, Lane.' },
+  { type: 'line', character: 'Lane', text: 'No, sir; it is not a very interesting subject. I never think of it myself.' },
+  { type: 'line', character: 'Algernon', text: 'Very natural, I am sure. That will do, Lane, thank you.' },
+  { type: 'line', character: 'Lane', text: 'Thank you, sir.' },
+  { type: 'direction', text: 'Lane goes out.' },
+  { type: 'line', character: 'Algernon', text: 'Lane\'s views on marriage seem somewhat lax. Really, if the lower orders don\'t set us a good example, what on earth is the use of them? They seem, as a class, to have absolutely no sense of moral responsibility.' },
+  { type: 'direction', text: 'Lane enters.' },
+  { type: 'line', character: 'Lane', text: 'Mr. Ernest Worthing.' },
+  { type: 'direction', text: 'Enter Jack. Lane goes out.' },
+  { type: 'line', character: 'Algernon', text: 'How are you, my dear Ernest? What brings you up to town?' },
+  { type: 'line', character: 'Jack', text: 'Oh, pleasure, pleasure! What else should bring one anywhere? Eating as usual, I see, Algy!' },
+  { type: 'line', character: 'Algernon', text: 'I believe it is customary in good society to take some slight refreshment at five o\'clock. Where have you been since last Thursday?' },
+  { type: 'line', character: 'Jack', text: 'In the country.' },
+  { type: 'line', character: 'Algernon', text: 'What on earth do you do there?' },
+  { type: 'line', character: 'Jack', text: 'When one is in town one amuses oneself. When one is in the country one amuses other people. It is excessively boring.' },
+  { type: 'line', character: 'Algernon', text: 'And who are the people you amuse?' },
+  { type: 'line', character: 'Jack', text: 'Oh, neighbours, neighbours.' },
+  { type: 'line', character: 'Algernon', text: 'Got nice neighbours in your part of Shropshire?' },
+  { type: 'line', character: 'Jack', text: 'Perfectly horrid! Never speak to one of them.' },
+];

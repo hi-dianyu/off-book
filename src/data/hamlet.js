@@ -1,0 +1,42 @@
+export const PLAY = {
+  id: 'hamlet',
+  title: 'Hamlet',
+  subtitle: 'Act 1, Scene 1',
+};
+
+export const CHARACTERS = ['Barnardo', 'Francisco', 'Horatio', 'Marcellus'];
+
+export const SCRIPT = [
+  { type: 'direction', text: 'Elsinore. A platform before the Castle. Enter Francisco and Barnardo, two sentinels.' },
+  { type: 'line', character: 'Barnardo', text: 'Who\'s there?' },
+  { type: 'line', character: 'Francisco', text: 'Nay, answer me. Stand and unfold yourself.' },
+  { type: 'line', character: 'Barnardo', text: 'Long live the King!' },
+  { type: 'line', character: 'Francisco', text: 'Barnardo?' },
+  { type: 'line', character: 'Barnardo', text: 'He.' },
+  { type: 'line', character: 'Francisco', text: 'You come most carefully upon your hour.' },
+  { type: 'line', character: 'Barnardo', text: '’Tis now struck twelve. Get thee to bed, Francisco.' },
+  { type: 'line', character: 'Francisco', text: 'For this relief much thanks. ’Tis bitter cold, and I am sick at heart.' },
+  { type: 'line', character: 'Barnardo', text: 'Have you had quiet guard?' },
+  { type: 'line', character: 'Francisco', text: 'Not a mouse stirring.' },
+  { type: 'line', character: 'Barnardo', text: 'Well, good night. If you do meet Horatio and Marcellus, the rivals of my watch, bid them make haste.' },
+  { type: 'direction', text: 'Enter Horatio and Marcellus.' },
+  { type: 'line', character: 'Francisco', text: 'I think I hear them. Stand, ho! Who is there?' },
+  { type: 'line', character: 'Horatio', text: 'Friends to this ground.' },
+  { type: 'line', character: 'Marcellus', text: 'And liegemen to the Dane.' },
+  { type: 'line', character: 'Francisco', text: 'Give you good night.' },
+  { type: 'line', character: 'Marcellus', text: 'O, farewell, honest soldier, who hath reliev’d you?' },
+  { type: 'line', character: 'Francisco', text: 'Barnardo has my place. Give you good-night.' },
+  { type: 'direction', text: 'Exit Francisco.' },
+  { type: 'line', character: 'Marcellus', text: 'Holla, Barnardo!' },
+  { type: 'line', character: 'Barnardo', text: 'Say, what, is Horatio there?' },
+  { type: 'line', character: 'Horatio', text: 'A piece of him.' },
+  { type: 'line', character: 'Barnardo', text: 'Welcome, Horatio. Welcome, good Marcellus.' },
+  { type: 'line', character: 'Marcellus', text: 'What, has this thing appear’d again tonight?' },
+  { type: 'line', character: 'Barnardo', text: 'I have seen nothing.' },
+  { type: 'line', character: 'Marcellus', text: 'Horatio says ’tis but our fantasy, and will not let belief take hold of him touching this dreaded sight, twice seen of us. Therefore I have entreated him along with us to watch the minutes of this night, that if again this apparition come he may approve our eyes and speak to it.' },
+  { type: 'line', character: 'Horatio', text: 'Tush, tush, ’twill not appear.' },
+  { type: 'line', character: 'Barnardo', text: 'Sit down awhile, and let us once again assail your ears, that are so fortified against our story, what we two nights have seen.' },
+  { type: 'line', character: 'Horatio', text: 'Well, sit we down, and let us hear Barnardo speak of this.' },
+  { type: 'line', character: 'Barnardo', text: 'Last night of all, when yond same star that’s westward from the pole, had made his course t’illume that part of heaven where now it burns, Marcellus and myself, the bell then beating one—' },
+  { type: 'line', character: 'Marcellus', text: 'Peace, break thee off. Look where it comes again.' },
+];
