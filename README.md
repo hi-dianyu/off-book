@@ -53,17 +53,24 @@ src/
 
 All bundled plays are public-domain opening-scene excerpts.
 
-## Adding a play with Claude Code (recommended)
+## Adding a play with an AI coding agent (recommended)
 
-This repo ships an [`add-script`](.claude/skills/add-script/SKILL.md) skill for
-[Claude Code](https://claude.com/claude-code). With Claude Code running in the
-project root, paste a script (or point at a PDF) and ask:
+This repo ships an `add-script` skill. The same `SKILL.md` is provided in both
+skill locations so it works out of the box with:
+
+- **Claude Code** — [`.claude/skills/add-script/SKILL.md`](.claude/skills/add-script/SKILL.md)
+- **Codex** — [`.agents/skills/add-script/SKILL.md`](.agents/skills/add-script/SKILL.md)
+
+With the agent running in the project root, paste a script (or point at a PDF)
+and ask:
 
 > load this script into the app
 
-Claude converts it to the data format, splits long monologues, separates stage
-directions, creates the `src/data/<id>.js` file, and registers it in
+The agent converts it to the data format, splits long monologues, separates
+stage directions, creates the `src/data/<id>.js` file, and registers it in
 `src/data/plays.js` for you. Source scripts should be public domain or your own.
+
+> The two `SKILL.md` files are identical — if you edit one, copy it to the other.
 
 ## Adding or editing a play manually
 
