@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { PLAYS } from "../data/plays";
 import { useLang } from "../i18n";
 
-export default function PlaySelection({ onSelect }) {
+export default function PlaySelection({ plays, onSelect, onSignOut }) {
   const { lang, setLang, t } = useLang();
   const [importModalOpen, setImportModalOpen] = useState(false);
 
@@ -26,6 +25,9 @@ export default function PlaySelection({ onSelect }) {
         >
           {lang === "en" ? "中" : "EN"}
         </button>
+        <button type="button" className="sign-out-btn" onClick={onSignOut}>
+          {t("signOut")}
+        </button>
       </header>
 
       <div className="character-selection-body">
@@ -40,7 +42,7 @@ export default function PlaySelection({ onSelect }) {
           </button>
         </div>
         <section className="plays-list">
-          {PLAYS.map((play) => (
+          {plays.map((play) => (
             <button
               key={play.id}
               type="button"

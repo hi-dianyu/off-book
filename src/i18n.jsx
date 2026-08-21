@@ -10,6 +10,7 @@ const strings = {
   selectCharacter: { en: "Select a character",          zh: "选择角色" },
   jumpToScene:     { en: "Jump to scene",               zh: "跳转场次" },
   clickToReveal:   { en: "Click to reveal line",        zh: "点击显示台词" },
+  signOut:         { en: "Sign out",                    zh: "登出" },
 };
 
 const LangContext = createContext();

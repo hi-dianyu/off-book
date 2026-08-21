@@ -558,3 +558,60 @@ button {
     background: #333;
   }
 }
+
+/* ---- Sign-in gate ---- */
+
+.signin-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.signin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 24rem;
+  text-align: center;
+}
+
+.signin-title {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.signin-subtitle {
+  margin: 0;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+.signin-button {
+  min-height: 44px;
+}
+
+.signin-error {
+  margin: 0;
+  color: #b3261e;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.sign-out-btn {
+  background: none;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font: inherit;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.sign-out-btn:hover {
+  opacity: 1;
+}
