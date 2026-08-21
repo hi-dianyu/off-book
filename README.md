@@ -22,8 +22,11 @@ A small web app for **off-book rehearsal**: pick a play and a role, then run lin
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
+
+Fill in `.env.local` with your Google OAuth client ID before the app will open — see [Access control](#access-control).
 
 Then open the URL Vite prints (usually [http://localhost:5173](http://localhost:5173)).
 
@@ -33,6 +36,32 @@ Then open the URL Vite prints (usually [http://localhost:5173](http://localhost:
 | `npm run build`| Production build to `dist/`|
 | `npm run preview` | Serve the production build locally |
 | `npm run lint` | Run ESLint                 |
+
+## Access control
+
+The app is limited to Google Workspace accounts on a single domain (`feiyutheater.org`).
+
+The script library is **not** part of the client bundle. It is served by `api/plays.js`, which
+verifies the caller's Google ID token against Google's public keys and checks that the account is
+a verified member of the allowed domain. An unauthenticated visitor receives the app shell and no
+play text of any kind, so scripts cannot be lifted out of the served JavaScript.
+
+Setup:
+
+1. In the [Google Cloud Console](https://console.cloud.google.com/apis/credentials), create an
+   OAuth 2.0 **Web application** client. Add your deployed origin and `http://localhost:5173` to
+   the authorised JavaScript origins. No client secret is needed.
+2. Put the client ID in `.env.local` (see `.env.example`).
+3. Set the same values as environment variables on your host:
+
+   | Variable | Purpose |
+   |----------|---------|
+   | `VITE_GOOGLE_CLIENT_ID` | Client ID, baked into the frontend at build time |
+   | `GOOGLE_CLIENT_ID` | Client ID, used by the API to validate the token audience |
+   | `ALLOWED_EMAIL_DOMAIN` | Workspace domain permitted to sign in |
+   | `VITE_ALLOWED_EMAIL_DOMAIN` | Same domain, for wording on the sign-in screen |
+
+To allow a different domain, change `ALLOWED_EMAIL_DOMAIN` — no code change required.
 
 ## Project layout
 
